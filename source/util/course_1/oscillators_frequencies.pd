@@ -1,0 +1,44 @@
+#N canvas 189 374 717 542 10;
+#X obj 221 182 mtof;
+#X obj 224 132 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 4800 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array square 1000 float 0;
+#X coords 0 1 999 -1 200 100 1;
+#X restore 393 317 graph;
+#X obj 83 271 tgl 15 1 empty empty empty 0 -6 0 10 -262144 -1 -1 1
+1;
+#X obj 83 447 tabwrite~ square;
+#X obj 218 409 dac~;
+#X text 253 183 [mtof] converts MIDI notes to frequency in Hertz.;
+#X text 363 131 Slider sends MIDI note values (0-127)., f 39;
+#X text 371 404 -1;
+#X text 377 359 0;
+#X text 377 313 1;
+#X text 104 269 Graph output;
+#X text 217 434 Line out to soundcard.;
+#X obj 83 315 metro 100;
+#X floatatom 221 157 5 0 0 0 - - -;
+#X floatatom 221 208 5 0 0 0 - - -;
+#X floatatom 314 266 5 0 0 0 - - -;
+#X obj 314 298 / 6;
+#X floatatom 314 329 5 0 0 0 - - -;
+#X obj 220 304 *~;
+#X obj 314 236 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X text 447 234 And this will save your ears;
+#X obj 221 235 osc~;
+#X connect 0 0 15 0;
+#X connect 1 0 14 0;
+#X connect 3 0 13 0;
+#X connect 13 0 4 0;
+#X connect 14 0 0 0;
+#X connect 15 0 22 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 1;
+#X connect 19 0 5 0;
+#X connect 19 0 5 1;
+#X connect 19 0 4 0;
+#X connect 20 0 16 0;
+#X connect 22 0 19 0;
