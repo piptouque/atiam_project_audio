@@ -1,0 +1,23 @@
+#N canvas 84 60 960 995 12;
+#X msg 560 180 0 \, 1;
+#X floatatom 740 200 5 0 6 0 - - -, f 5;
+#X text 740 180 Octave;
+#X obj 180 40 hradio 27 0 0 3 empty beat Beat 0 -8 0 14 #fcfcfc #000000
+#000000 0;
+#X text 560 120 Tonality (semitone relative to A) \, Major/Minor,
+f 21;
+#X floatatom 520 540 5 0 0 0 - - -, f 5;
+#X text 520 520 MIDI Velocity;
+#X floatatom 580 580 5 0 0 0 - - -, f 5;
+#X text 580 560 Duration (in beats);
+#X floatatom 780 600 5 20 200 2 BeatsPerMinute bpm -, f 5;
+#X obj 327 812 print;
+#X obj 280 600 util/list_foreach;
+#X obj 300 720 util/chroma_to_midi;
+#X connect 0 0 12 1;
+#X connect 1 0 12 2;
+#X connect 5 0 12 3;
+#X connect 7 0 12 4;
+#X connect 9 0 12 5;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;

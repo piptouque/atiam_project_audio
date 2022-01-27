@@ -1,0 +1,44 @@
+#N canvas 735 256 868 666 12;
+#X obj 120 380 +;
+#X obj 120 320 +;
+#X text 480 40 MIDI Velocity;
+#X obj 120 440 makenote;
+#X text 600 40 Duration (in beats);
+#X obj 400 80 * 12;
+#X text 400 40 Octave;
+#X obj 220 100 unpack f f;
+#X obj 20 80 inlet;
+#X text 20 60 Chroma (relative to A);
+#X obj 220 80 inlet;
+#X text 220 20 Tonality (semitone relative to A \, Major/Minor), f
+21;
+#X obj 400 60 inlet;
+#X obj 600 60 inlet;
+#X obj 480 60 inlet;
+#X obj 120 480 pack f f;
+#X obj 120 520 outlet;
+#X text 120 540 MIDI Note (tone \, telocity);
+#X obj 760 60 inlet;
+#X text 760 40 BeatPerMinute;
+#X obj 540 220 expr 1 / ($f1 * $f2 * 60000);
+#X obj 600 120 clip 0.01 4;
+#X text 600 100 Some arbitrary safeguarding;
+#X text 200 440 Not sure if this makenote thing is asynchronous. Otherwise
+there'll be trouble inside foreach loops.;
+#X text 120 560 Note On and Note Off sent according to the duration.
+;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 3 0 15 0;
+#X connect 3 1 15 1;
+#X connect 5 0 0 1;
+#X connect 7 1 1 1;
+#X connect 8 0 1 0;
+#X connect 10 0 7 0;
+#X connect 12 0 5 0;
+#X connect 13 0 21 0;
+#X connect 14 0 3 1;
+#X connect 15 0 16 0;
+#X connect 18 0 20 1;
+#X connect 20 0 3 2;
+#X connect 21 0 20 0;

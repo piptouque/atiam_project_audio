@@ -1,0 +1,63 @@
+#N canvas 34 98 960 995 12;
+#X obj 380 220 t b b;
+#X obj 180 560 spigot;
+#X obj 180 420 t s s;
+#X obj 240 460 1;
+#X obj 320 460 0;
+#X obj 180 380 symbol, f 8;
+#X msg 160 260 symbol __BANG;
+#X obj 240 480 == 1;
+#X obj 380 200 inlet;
+#X obj 160 200 inlet;
+#X obj 180 640 outlet;
+#X text 160 180 Bang that should wait;
+#X text 380 180 Bang that should be waited for;
+#X text 180 660 Bangs when the second bang does \, but only if the
+first has banged in the meantime., f 23;
+#X msg 280 260 symbol __CLEAR_BANG;
+#X obj 240 440 select __BANG __CLEAR_BANG;
+#X obj 360 560 tgl 46 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 220 60 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 380 640 outlet;
+#X text 380 660 True if the bang is currently pending \, false otherwise.
+, f 16;
+#X obj 180 580 bng 48 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 240 500 t f f;
+#X floatatom 340 500 5 0 0 0 - - -, f 5;
+#X obj 180 320 t s s;
+#X obj 500 460 1;
+#X obj 580 460 0;
+#X obj 520 500 == 1;
+#X obj 500 420 select __BANG;
+#X obj 280 540 0;
+#X connect 0 0 14 0;
+#X connect 0 1 5 0;
+#X connect 1 0 20 0;
+#X connect 2 0 1 0;
+#X connect 2 1 15 0;
+#X connect 3 0 7 0;
+#X connect 4 0 7 0;
+#X connect 5 0 2 0;
+#X connect 6 0 23 0;
+#X connect 7 0 21 0;
+#X connect 7 0 22 0;
+#X connect 8 0 0 0;
+#X connect 9 0 6 0;
+#X connect 14 0 5 1;
+#X connect 15 0 3 0;
+#X connect 15 1 4 0;
+#X connect 16 0 18 0;
+#X connect 20 0 10 0;
+#X connect 21 0 28 0;
+#X connect 21 1 1 1;
+#X connect 23 0 27 0;
+#X connect 23 1 5 1;
+#X connect 24 0 26 0;
+#X connect 25 0 26 0;
+#X connect 26 0 16 0;
+#X connect 27 0 24 0;
+#X connect 27 1 25 0;
+#X connect 28 0 16 0;

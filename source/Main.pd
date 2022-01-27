@@ -1,1 +1,111 @@
-#N canvas 735 423 450 300 12;
+#N canvas 960 60 960 995 12;
+#X obj 60 40 tgl 74 0 empty beat_on BeatOn 17 7 0 14 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 180 80 5 20 200 2 BeatsPerMinute bpm -, f 5;
+#X floatatom 700 80 5 1 7 2 BeatsPerMeasure - beats_per_measure, f
+5;
+#X floatatom 700 120 5 1 4 2 SubsPerBeat - subs_per_beat, f 5;
+#X floatatom 420 80 5 0 0 2 SubsPerBeat subs_per_beat -, f 5;
+#X obj 800 540 tgl 74 0 beat_on empty BeatOn 17 7 0 14 #fcfcfc #000000
+#000000 1 1;
+#X floatatom 300 80 5 0 0 2 BeatsPerMeasure beats_per_measure -, f
+5;
+#X obj 680 540 bng 91 250 50 0 empty measure Measure 17 7 0 14 #fcfcfc
+#000000 #000000;
+#X obj 140 400 bng 81 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 120 540 util/bang_wait;
+#X obj 120 540 util/bang_wait;
+#X obj 80 600 bng 72 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 140 160 util/metro_beat;
+#X obj 680 640 hradio 25 0 0 3 empty beat Beat 0 -8 0 14 #fcfcfc #000000
+#000000 0;
+#X obj 680 680 hradio 25 0 0 4 empty subbeat Subbeat 0 -8 0 14 #fcfcfc
+#000000 #000000 0;
+#X obj 200 200 s beat;
+#X obj 260 200 s subbeat;
+#X obj 120 200 s measure;
+#X msg 680 780 number \$1;
+#X msg 680 740 number \$1;
+#X obj 680 720 r beats_per_measure;
+#X obj 680 760 r subs_per_beat;
+#X obj 820 720 r beats_per_measure;
+#X obj 840 740 r subs_per_beat;
+#X obj 820 800 *;
+#X floatatom 820 840 5 0 0 2 SubsPerMeasure - subs_per_measure, f
+5;
+#X floatatom 840 80 5 0 0 2 RandomSeed - seed, f 5;
+#X obj 180 600 tgl 72 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 840 760 t b f;
+#X floatatom 700 40 5 20 200 2 BeatsPerMinute - bpm, f 5;
+#X msg 700 400 \; beat_on 0 \;;
+#X text 560 160 Note: - Set the subs_per_beat before the bpm - Set
+the beat_on message last. Otherwise the metronome won't start on first
+try., f 31;
+#X msg 560 280 \; subs_per_beat 4 \; beats_per_measure 4 \; bpm 120
+\; beat_on 1 \;;
+#X msg 740 240 \; subs_per_beat 4 \; beats_per_measure 3 \; bpm 90
+\; beat_on 1 \;;
+#X obj 260 840 four_chords;
+#X obj 280 700 r beat;
+#X obj 340 660 r fs_tonality;
+#X msg 340 680 tonality \$1;
+#X obj 440 660 r fs_octave;
+#X msg 440 680 octave \$1;
+#X obj 280 780 r fs_one;
+#X msg 280 800 0 \$1;
+#X msg 340 800 0 \$1;
+#X obj 340 780 r fs_two;
+#X msg 400 800 0 \$1;
+#X obj 400 780 r fs_three;
+#X msg 480 800 0 \$1;
+#X obj 480 780 r fs_four;
+#X obj 300 880 s tonality;
+#X obj 260 920 print;
+#X msg 360 340 \; fs_tonality 0 1 \; fs_octave 4 \; fs_one 0 4 7 \;
+fs_two 0 4 7 \; fs_three 5 9 0 2 \; fs_four 5 9 0 3 \;;
+#X msg 140 120 reset \$1;
+#X obj 140 100 r beat_reset;
+#X msg 800 400 \; beat_on 0 \; beat_reset 1 \;;
+#X obj 220 280 bng 119 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 217 -513;
+#X connect 0 0 12 0;
+#X connect 1 0 12 1;
+#X connect 4 0 12 3;
+#X connect 7 0 10 1;
+#X connect 8 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 27 0;
+#X connect 12 0 17 0;
+#X connect 12 1 15 0;
+#X connect 12 2 16 0;
+#X connect 18 0 14 0;
+#X connect 19 0 13 0;
+#X connect 20 0 19 0;
+#X connect 21 0 18 0;
+#X connect 22 0 24 0;
+#X connect 23 0 28 0;
+#X connect 24 0 25 0;
+#X connect 28 0 24 0;
+#X connect 28 1 24 1;
+#X connect 34 0 49 0;
+#X connect 34 1 48 0;
+#X connect 35 0 34 0;
+#X connect 36 0 37 0;
+#X connect 37 0 34 0;
+#X connect 38 0 39 0;
+#X connect 39 0 34 0;
+#X connect 40 0 41 0;
+#X connect 41 0 34 0;
+#X connect 42 0 34 0;
+#X connect 43 0 42 0;
+#X connect 44 0 34 0;
+#X connect 45 0 44 0;
+#X connect 46 0 34 0;
+#X connect 47 0 46 0;
+#X connect 51 0 12 0;
+#X connect 51 0 54 0;
+#X connect 52 0 51 0;

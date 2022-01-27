@@ -1,0 +1,18 @@
+#N canvas 192 172 709 500 12;
+#X obj 100 60 inlet;
+#X text 100 40 Input list;
+#X obj 200 60 inlet;
+#X text 200 40 Index of the value to get;
+#X obj 100 120 list split;
+#X obj 100 200 outlet;
+#X text 100 220 List[idx] (hopefully);
+#X obj 180 100 + 1;
+#X obj 100 160 list split;
+#X text 340 120 Get the value of the list at the given index., f 18
+;
+#X connect 0 0 4 0;
+#X connect 2 0 7 0;
+#X connect 2 0 8 1;
+#X connect 4 0 8 0;
+#X connect 7 0 4 1;
+#X connect 8 1 5 0;
