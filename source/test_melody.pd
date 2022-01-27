@@ -1,9 +1,9 @@
-#N canvas 84 60 960 995 12;
+#N canvas 84 78 960 977 12;
 #X msg 560 180 0 \, 1;
 #X floatatom 740 200 5 0 6 0 - - -, f 5;
 #X text 740 180 Octave;
 #X obj 180 40 hradio 27 0 0 3 empty beat Beat 0 -8 0 14 #fcfcfc #000000
-#000000 0;
+#000000 2;
 #X text 560 120 Tonality (semitone relative to A) \, Major/Minor,
 f 21;
 #X floatatom 520 540 5 0 0 0 - - -, f 5;

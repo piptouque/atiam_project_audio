@@ -1,0 +1,42 @@
+#N canvas 171 60 960 995 12;
+#X obj 380 220 t b b;
+#X obj 380 200 inlet;
+#X obj 160 200 inlet;
+#X obj 180 460 outlet;
+#X text 380 180 Bang that should be waited for;
+#X obj 380 460 outlet;
+#X text 380 480 True if the bang is currently pending \, false otherwise.
+, f 16;
+#X obj 100 500 bng 48 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 360 320 0;
+#X obj 180 400 spigot;
+#X obj 360 380 tgl 46 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 440 300 1;
+#X obj 160 220 t b a b;
+#X obj 180 320 any;
+#X text 160 180 Atom that should wait;
+#X text 180 480 Outputs when the right inlet bangs \, but only if the
+first left inlet has banged (been set) in the meantime., f 23;
+#X obj 140 60 bng 85 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 420 60 bng 90 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X connect 0 0 8 0;
+#X connect 0 1 13 0;
+#X connect 1 0 0 0;
+#X connect 2 0 12 0;
+#X connect 8 0 10 0;
+#X connect 9 0 3 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 1;
+#X connect 10 0 5 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 12 1 13 1;
+#X connect 12 2 8 0;
+#X connect 13 0 9 0;
+#X connect 16 0 12 0;
+#X connect 17 0 0 0;
+#X coords 0 0 1 1 23 0 0;
