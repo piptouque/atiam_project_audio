@@ -1,0 +1,23 @@
+#N canvas 0 60 960 995 12;
+#X obj 500 -540 inlet;
+#X obj 620 -540 inlet;
+#X text 500 -560 MIDI Velocity;
+#X text 620 -560 Duration (in sections/minute);
+#X obj 320 -540 inlet;
+#X obj 380 -540 inlet;
+#X text 320 -560 Tonality;
+#X text 380 -560 Octave index;
+#X obj 60 -360 outlet;
+#X obj 60 -480 util/list_foreach;
+#X obj 60 -440 util/chroma_to_midi;
+#X obj 280 -160 bng 82 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 60 -540 inlet;
+#X text 60 -560 Chord (a single list of chromas);
+#X connect 0 0 10 3;
+#X connect 1 0 10 4;
+#X connect 4 0 10 1;
+#X connect 5 0 10 2;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 12 0 9 0;

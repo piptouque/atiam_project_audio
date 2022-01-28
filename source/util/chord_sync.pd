@@ -1,0 +1,42 @@
+#N canvas 36 60 960 995 12;
+#X obj 60 -540 inlet;
+#X obj 280 -240 list;
+#X obj 280 -380 route 0 1 2 3;
+#X obj 280 -520 inlet;
+#X text 60 -600 Section params (Section index \, section/super \, sections/minute)
+;
+#X obj 60 -500 unpack f f f;
+#X obj 280 -162 outlet;
+#X obj 100 -380 route 0 1 2 3;
+#X obj 320 -240 list;
+#X obj 360 -240 list;
+#X obj 400 -240 list;
+#X msg 280 -260 bang;
+#X msg 320 -260 bang;
+#X msg 360 -260 bang;
+#X msg 400 -260 bang;
+#X text 440 -300 Choose the correct chord (from the indexed chord list)
+by to the current section index., f 31;
+#X text 280 -560 Chords (lists of chromas \, each should be prepended
+by the relevent section index);
+#X obj 60 -460 mod 4;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 1;
+#X connect 2 1 8 1;
+#X connect 2 2 9 1;
+#X connect 2 3 10 1;
+#X connect 3 0 2 0;
+#X connect 5 0 17 0;
+#X connect 7 0 11 0;
+#X connect 7 1 12 0;
+#X connect 7 2 13 0;
+#X connect 7 3 14 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X connect 10 0 6 0;
+#X connect 11 0 1 0;
+#X connect 12 0 8 0;
+#X connect 13 0 9 0;
+#X connect 14 0 10 0;
+#X connect 17 0 7 0;
