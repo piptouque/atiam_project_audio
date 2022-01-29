@@ -1,0 +1,78 @@
+#N canvas 960 60 960 995 12;
+#X obj 460 -160 cnv 15 361 139 empty empty empty 20 12 0 14 #116900
+#7eff00 0;
+#X obj 40 -260 inlet;
+#X text 32 -288 Noise level / Bang;
+#X obj 520 -140 vsl 35 81 2 2000 0 0 \$0-modulator-freq \$0-ctrl-modulator-freq
+ModFreq 0 -9 0 10 #fcfcfc #000000 #000000 5300 1;
+#X obj 560 -140 vsl 35 81 0 5 0 0 \$0-modulator-amp \$0-ctrl-modulator-amp
+ModAmp 0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 480 -140 vsl 35 81 0 2000 0 0 \$0-carrier-freq \$0-ctrl-carrier-freq
+CarrFreq 0 -9 0 10 #fcfcfc #000000 #000000 800 1;
+#X floatatom 520 -60 5 0 0 0 - - -, f 5;
+#X floatatom 480 -60 5 0 0 0 - - -, f 5;
+#X floatatom 560 -60 5 0 0 0 - - -, f 5;
+#X obj 80 -100 s \$0-ctrl-modulator-freq;
+#X obj 40 -120 s \$0-ctrl-carrier-freq;
+#X obj 120 -80 s \$0-modulator-amp;
+#X obj 60 -180 route carrier_freq modulator_freq modulator_amp;
+#X text 400 -180 Carrier frequency (Hz);
+#X text 560 -180 Modulator frequency (Hz);
+#X text 740 -180 Modulator amplitude;
+#X obj 20 -20 r \$0-carrier-freq;
+#X obj 40 140 +~;
+#X obj 120 20 r \$0-modulator-freq;
+#X obj 120 60 triangle~;
+#X obj 196 73 r \$0-modulator-amp;
+#X obj 120 100 *~;
+#X obj 40 180 osc~;
+#X obj 40 220 outlet~;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-arr 100 float 1 black #12ff00;
+#A 0 -0.00528566 0.60778 0.966656 0.921169 0.490325 -0.145685 -0.720756
+-0.99425 -0.851677 -0.352632 0.294019 0.817632 0.998955 0.762061 0.206082
+-0.43622 -0.89586 -0.980326 -0.65418 -0.0539882 0.568837 0.95338 0.938454
+0.530295 -0.100107 -0.688584 -0.988459 -0.874018 -0.393243 0.252336
+0.792134 0.999983 0.78883 0.247179 -0.397992 -0.876433 -0.98774 -0.685358
+-0.0959745 0.533582 0.939688 0.952359 0.566334 -0.0567567 -0.65606
+-0.980773 -0.894996 -0.434716 0.207445 0.762785 0.998991 0.817305 0.293744
+-0.352643 -0.85154 -0.994306 -0.721322 -0.146766 0.48913 0.92053 0.967149
+0.60952 -0.00281286 -0.613953 -0.96852 -0.918429 -0.48463 0.151598
+0.724487 0.994742 0.849562 0.349615 -0.296302 -0.818485 -0.998932 -0.762368
+-0.207594 0.433809 0.894143 0.98132 0.659017 0.0617652 -0.561233 -0.950089
+-0.942612 -0.541972 0.084752 0.676141 0.985483 0.883645 0.413096 -0.22986
+-0.776905 -0.999724 -0.805239 -0.274608 0.370691 0.861234 0.992196
+0.708821;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 420 100 graph;
+#X obj 180 200 metro 100;
+#X obj 180 160 bng 29 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 160 260 tabwrite~ \$0-arr;
+#X obj 40 -220 route float;
+#X floatatom 280 180 5 0 0 0 - - -, f 5;
+#X floatatom 200 140 5 0 0 0 - - -, f 5;
+#X floatatom 280 220 5 0 0 0 - - -, f 5;
+#X connect 1 0 28 0;
+#X connect 3 0 6 0;
+#X connect 4 0 8 0;
+#X connect 5 0 7 0;
+#X connect 12 0 10 0;
+#X connect 12 1 9 0;
+#X connect 12 2 11 0;
+#X connect 16 0 17 0;
+#X connect 16 0 31 0;
+#X connect 17 0 22 0;
+#X connect 18 0 19 0;
+#X connect 18 0 30 0;
+#X connect 19 0 21 0;
+#X connect 20 0 21 1;
+#X connect 20 0 29 0;
+#X connect 21 0 17 1;
+#X connect 22 0 23 0;
+#X connect 22 0 27 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 28 0 10 0;
+#X connect 28 1 12 0;
+#X coords 0 -1 1 1 128 134 1 471 -175;
