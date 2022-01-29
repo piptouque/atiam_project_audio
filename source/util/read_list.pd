@@ -1,0 +1,18 @@
+#N canvas 522 319 450 300 12;
+#X obj 60 220 textfile;
+#X msg 80 200 rewind;
+#X obj 60 0 inlet;
+#X obj 60 60 symbol \$1;
+#X obj 60 140 t b b s;
+#X msg 100 180 read \$1;
+#X obj 60 300 outlet;
+#X obj 60 240 list;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 1 0;
+#X connect 4 2 5 0;
+#X connect 5 0 0 0;
+#X connect 7 0 6 0;

@@ -1,0 +1,19 @@
+#N canvas 63 60 960 995 12;
+#X obj 60 40 inlet;
+#X obj 200 40 inlet;
+#X text 60 20 Frequency (Hz);
+#X text 200 20 Phase (in [0 \, 1] \, same as phasor~);
+#X obj 60 120 phasor~;
+#X obj 60 200 outlet~;
+#X text 60 220 Triangle signal;
+#X text 434 161 Triangle oscillator. Values in [0 \, 1] \, same as
+phasor~;
+#X obj 60 160 expr~ 4 * abs(($v1 - 0.5)/2);
+#X obj 60 80 f \$1;
+#X obj 100 60 loadbang;
+#X connect 0 0 9 0;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 4 0;
+#X connect 10 0 9 0;

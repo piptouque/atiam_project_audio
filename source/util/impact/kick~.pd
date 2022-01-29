@@ -1,0 +1,108 @@
+#N canvas 75 60 960 995 12;
+#X obj 220 80 cnv 15 361 139 empty empty empty 20 12 0 14 #116900 #7eff00
+0;
+#X obj 40 60 inlet;
+#X obj 160 480 f;
+#X obj 19 572 noise~;
+#X obj 60 660 *~;
+#X obj 240 800 vcf~ 0.5;
+#X obj 220 860 *~;
+#X obj 200 900 outlet~;
+#X obj 380 760 osc~;
+#X obj 380 740 *~ 1;
+#X obj 240 660 *~ 1;
+#X obj 160 540 impact_env~;
+#X obj 260 540 impact_pitch~;
+#X obj 240 700 phasor~;
+#X obj 240 740 expr~ $v1 > 0.5;
+#X text 380 60 Filter scale;
+#X text 480 60 Sine scale;
+#X msg 160 440 bang;
+#X text 40 40 Noise level / Bang;
+#X obj 40 100 route bang;
+#X obj 80 280 s \$0-ctrl-decay;
+#X obj 120 300 s \$0-ctrl-pitch;
+#X obj 160 340 s \$0-ctrl-filter;
+#X obj 200 360 s \$0-ctrl-sine;
+#X obj 79 612 r \$0-noise;
+#X obj 240 440 r \$0-decay;
+#X obj 280 640 r \$0-pitch;
+#X obj 280 760 r \$0-filter;
+#X obj 420 720 r \$0-sine;
+#X obj 40 360 s \$0-start;
+#X obj 160 420 r \$0-start;
+#X obj 340 900 tabwrite~ \$0-arr;
+#X obj 700 520 metro 100;
+#X obj 720 460 loadbang;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-arr 100 float 1 black #31ff00;
+#A 0 0.062388 0.0623882 0.0623883 0.0623884 0.0623886 0.0623887 0.0623888
+0.062389 0.0623891 0.0623892 0.0623894 0.0623895 0.0623896 0.0623898
+0.0623899 0.06239 0.0623902 0.0623903 0.0623904 0.0623906 0.0623907
+0.0623908 0.062391 0.0623911 0.0623912 0.0623914 0.0623915 0.0623916
+0.0623918 0.0623919 0.062392 0.0623922 0.0623923 0.0623924 0.0623926
+0.0623927 0.0623928 0.062393 0.0623931 0.0623932 0.0623934 0.0623935
+0.0623937 0.0623938 0.0623939 0.0623941 0.0623942 0.0623943 0.0623945
+0.0623946 0.0623947 0.0623949 0.062395 0.0623951 0.0623953 0.0623954
+0.0623955 0.0623957 0.0623958 0.0623959 0.0623961 0.0623962 0.0623963
+0.0623965 0.0623966 0.0623967 0.0623969 0.062397 0.0623971 0.0623973
+0.0623974 0.0623975 0.0623977 0.0623978 0.0623979 0.0623981 0.0623982
+0.0623983 0.0623985 0.0623986 0.0623987 0.0623989 0.062399 0.0623991
+0.0623993 0.0623994 0.0623996 0.0623997 0.0623998 0.0624 0.0624001
+0.0624002 0.0624004 0.0624005 0.0624006 0.0624008 0.0624009 0.062401
+0.0624012 0.0624013;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 460 300 graph;
+#X obj 240 120 vsl 35 81 0 2000 0 0 \$0-decay \$0-ctrl-decay Decay
+0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 320 120 vsl 35 81 0.5 20 1 0 \$0-pitch \$0-ctrl-pitch Pitch
+0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 360 120 vsl 35 81 0 1 0 0 \$0-filter \$0-ctrl-filter Filter
+0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X floatatom 119 752 5 0 0 0 - - -, f 5;
+#X obj 280 120 vsl 35 81 0 1 0 0 \$0-noise \$0-ctrl-noise Noise 0 -9
+0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 80 260 route decay noise pitch filter sine;
+#X obj 140 320 s \$0-ctrl-noise;
+#X obj 360 440 bng 135 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 400 120 vsl 35 81 0 1 0 0 \$0-sine \$0-ctrl-sine Sine 0 -9 0
+10 #fcfcfc #000000 #000000 0 1;
+#X text 200 60 Decay (ms);
+#X text 280 60 Pitch scale;
+#X connect 1 0 19 0;
+#X connect 2 0 11 0;
+#X connect 2 0 12 0;
+#X connect 2 0 42 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 1;
+#X connect 5 0 31 0;
+#X connect 6 0 7 0;
+#X connect 8 0 6 1;
+#X connect 9 0 8 0;
+#X connect 10 0 13 0;
+#X connect 10 0 9 0;
+#X connect 11 0 6 0;
+#X connect 12 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 17 0 2 0;
+#X connect 19 0 29 0;
+#X connect 19 1 40 0;
+#X connect 24 0 4 1;
+#X connect 24 0 38 0;
+#X connect 25 0 2 1;
+#X connect 26 0 10 1;
+#X connect 27 0 5 1;
+#X connect 28 0 9 1;
+#X connect 30 0 17 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 0;
+#X connect 40 0 20 0;
+#X connect 40 1 21 0;
+#X connect 40 2 41 0;
+#X connect 40 3 22 0;
+#X connect 40 4 23 0;
+#X connect 40 5 29 0;
+#X coords 0 -1 1 1 197 108 1 239 97;

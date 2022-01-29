@@ -7,11 +7,11 @@
 #X obj 380 -540 inlet;
 #X text 320 -560 Tonality;
 #X text 380 -560 Octave index;
-#X obj 60 -360 outlet;
+#X obj 60 -340 outlet;
 #X obj 60 -540 inlet;
 #X text 60 -560 Chord (a single list of chromas);
 #X obj 60 -480 list_foreach;
-#X obj 60 -440 chroma_to_midi;
+#X obj 60 -360 chroma_to_midi;
 #X obj 840 -540 inlet;
 #X text 840 -560 Section params;
 #X text 240 -420 Generic chord harmoniser.;

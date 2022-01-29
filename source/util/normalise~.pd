@@ -1,0 +1,32 @@
+#N canvas 735 439 450 300 12;
+#X obj 60 40 inlet~;
+#X obj 160 120 f \$1;
+#X obj 240 120 f \$2;
+#X obj 160 40 inlet;
+#X obj 240 40 inlet;
+#X text 160 20 DC offset;
+#X text 240 20 Range;
+#X obj 60 140 -~;
+#X obj 60 180 /~;
+#X obj 60 260 outlet~;
+#X text 60 20 Input signal;
+#X text 220 140 Removes DC offset and normalises signal to the [-1
+\, 1] range., f 20;
+#X obj 60 220 *~ 2;
+#X floatatom 140 180 5 0 0 0 - - -, f 5;
+#X floatatom 180 220 5 0 0 0 - - -, f 5;
+#X obj 320 60 bang~;
+#X text 320 0 I can't make loadbang work here for some reason?, f
+16;
+#X connect 0 0 7 0;
+#X connect 1 0 7 1;
+#X connect 1 0 13 0;
+#X connect 2 0 8 1;
+#X connect 2 0 14 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 12 0 9 0;
+#X connect 15 0 1 0;
+#X connect 15 0 2 0;

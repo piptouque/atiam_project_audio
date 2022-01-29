@@ -1,0 +1,12 @@
+#N canvas 960 60 960 995 12;
+#X obj 40 40 inlet;
+#X msg 40 120 0.5 \, 1 5 \, 0.5 60 6 \, 0 \$1 65;
+#X obj 40 160 vline~;
+#X obj 40 200 outlet~;
+#X text 40 20 Bang;
+#X text 40 220 Envolope signal;
+#X obj 40 80 f;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 6 0 1 0;
