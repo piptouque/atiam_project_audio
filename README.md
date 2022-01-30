@@ -1,5 +1,7 @@
 
-### Some thoughts
+### Normalising a gaussian
+
+> Not actually used, doesn't work.
 
 Our discretised Gaussian $(g_k)_{k \in [|0, n|]}$, $\sim N(\mu_d, \sigma_d^2)$.
 
@@ -38,4 +40,3 @@ $$
 $$
 
 We can then normalise the gaussian with $(\mu_d, \sigma_d^2)$.
-So yeah, it works.
